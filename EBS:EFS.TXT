@@ -1,0 +1,15 @@
+Create instance
+Create volume   
+    volume type (only use gp)
+    choose availibilty zone
+    click create volume
+        ##can create ebs seperately or when building the instance
+
+EFS
+    Create security groups
+        Inbound rules has to be NFS
+    Create file system (EFS)
+        File system - regional
+        Click next
+        Choose security group 
+        Create file system

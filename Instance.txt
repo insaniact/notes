@@ -1,0 +1,40 @@
+Create Security Group
+    enter name and desc - 1 word
+    use default vpc
+    add inbound rules
+        SSH
+            source - anywhere pv4
+            desc - SSH
+        http
+            source - anywhere pv4
+                desc - myhomepage
+    tags
+        anything you want
+    click create security group
+
+    ###windows uses inbound rule: HDP
+
+Launch Instance (Linux)
+    create name
+    use amazon linux by default
+    instance type
+        t2.micro - default
+    key pair
+        create key pair
+            name key pair
+            Click create key pair
+    network settings
+        use default vpc
+        enable auto assign public ip
+        select existing security group
+    adv details
+        scroll to bottom and enter code
+    launch instance
+
+Launch instance (windows)
+    Differences than Linux
+        select windows for AMI
+        instance type
+            t2.medium
+        create key pair
+        launch instance

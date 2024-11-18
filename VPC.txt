@@ -1,0 +1,40 @@
+###Private IP addresses:
+     10.0.0.0        -   10.255.255.255  (10/8 prefix)
+     172.16.0.0      -   172.31.255.255  (172.16/12 prefix)
+     192.168.0.0     -   192.168.255.255 (192.168/16 prefix)
+
+### RFC 1918 is a MUST KNOW FOR JOB! ###
+
+to find ip address cmd ifconfig
+
+10.0-255.0.0/16
+10. - dont change
+0-255. - this is for your network
+0-255. - for subnets
+1-254 - hosts
+
+BUILD VPC
+
+Create VPC
+    select vpc and more
+    name vpc
+    enter network address
+    select number of av zones
+    select # of public and private subnets - 3
+        enter subnets for each
+    nat gateway - 1 az zone 
+    add tags
+    create vpc
+
+##Create security group and attach new vpc to it
+
+Create security group   
+    name
+    attach new vpc
+    inbound rules
+        ssh and http
+    add tags
+
+Create ec2
+    launch ec2
+        

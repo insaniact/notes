@@ -1,0 +1,35 @@
+create vpc for each zone based on diagram
+
+create transit gateway
+    create name
+    config trans gateway
+        leave 4 boxes checked plus sec group
+            check auto accept
+    CIDR = 10.0.0.0/8
+    create tags
+    click create
+create transit gateway attachmemnt
+    create name
+    drop down for gateway id    
+    attachment type...vpc
+    select vpc id and subnet id 
+    click create
+create route table
+    select a vpc to assign route
+        click edit route
+            10.0.0.0/8 points towards transit gateway
+            save changes
+to test transit gateway
+    create security group for public/private 
+        inbound rules  
+            all icmp - 1pv4     10.0.0.0/8
+            ssh
+            http
+            rdp (windows)
+    create ec2 - use windows if using sec group with RDP
+
+Running Windows ec2
+    Check box in front of ec2 and click connect 
+        Select RDP tab 
+        
+             

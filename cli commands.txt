@@ -1,0 +1,18 @@
+update apps in cli - brew upgrade
+terraform --version
+pwd - present working directory
+mkdir - make directory
+cd - change directory   
+cd .. - go up on directory
+terraform init 
+terraform validate
+terraform plan
+terraform apply
+terraform destroy
+terraform taint aws_launch_template 
+
+
+/* - start ignore
+*/ - end ignore
+install AWSCLI - brew install AWSCLI
+

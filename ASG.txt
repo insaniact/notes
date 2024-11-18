@@ -1,0 +1,64 @@
+Load balancer goes into public subnet.
+    Has a security group. Auto scaling group also has a security group
+
+Creating a ASG
+    create a vpc - customize CIDR (10.213.0.0/16), subnets (10.213.1.0/24) NAT gateway is 1 AZ,
+        VPC endpoints-none
+    create security groups - tg
+        inbound rules - http, anywhere ipv4 0.0.0.0/0
+    create security group - lb
+        inbound rules - http, anywhere ipv4 0.0.0.0/0
+    create ec2 launch template
+        launch template contents
+            aws
+            instance type - t2.micro
+            create key pair
+            Do not select Subnet
+            select sg for target group
+            advanced details to enter script
+        be sure to copy AMI for terraform - different for each region
+    Create target group
+        leave instances selected
+        select vpc
+        click next
+        create target group
+    create Load balancer
+        appl load balancer
+        select vpc
+        choose all 3 az 
+        choose public subnets only
+        select sg for lb
+        listeners and routing
+            HTTP and select target group
+        create load balancer
+    create ASG
+        select launch template  
+        click next
+        select vpc
+        select only private az
+        click next
+        select attach to an existing load balancer 
+        select load balancer target group
+        click next
+        min desired capacity = 1 x num of az
+        desired caplacity = 2 x num of az
+        max desired capacity = 3 x num of az
+        automatic scaling - target tracking scaling policy
+        instance maintenance - terminate and launch
+        click next
+        review asg
+        create asg
+test asg
+    wait for instances to initialize
+    go to load balancers
+    select lb
+    copy dns name
+    
+Teardown ASG
+    asg
+    load balancer
+    target group
+    launch template
+    nat gateway
+    elastic ip
+    vpc

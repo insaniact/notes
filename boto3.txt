@@ -1,0 +1,9 @@
+#library of codes, it allows amazone aws to connect with our program
+import boto3
+
+#it tells us where and whar we are doing in aws for ex. what is ec2, where is the region
+ec2_client = boto3.client('ec2' , region_name='us-east-2')
+
+voluumes = ec2_client.describe_volumes()
+
+print(volumes['Volumes'])

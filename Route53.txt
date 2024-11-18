@@ -1,0 +1,42 @@
+Purchase domain name
+    Search for Route53
+    go to register domain
+        click orange box register domain
+            search and chose domain name
+            checkout
+                don't use real info and turn on privacy protection
+
+Change hosted zone
+    click on hosted zone
+        create hosted zone
+            enter domain name, description
+            Type - public hosted zone
+            click create hosted zone
+    go back to hosted zone and delete one if there are duplicate domains
+
+Making a cert (needed to use port 443)
+    search certificate manager
+        request cert 
+            public cert
+            next
+            enter domain
+            next
+            click request
+
+Add Port 443 to sg for lb so it has port 443 and port 80 
+create new sg for 443 - inbound rule http
+    (LB has port 443, EC2 has port 80)
+
+create launch template using app443 sg. 
+
+create targer group - port 80 - connect to vpc
+
+go Route53 
+    click on domain
+        create a record in Route53
+
+go to load balancer and add listener - port 443
+    select sg using 443
+    select cert from aws_launch_template
+
+
